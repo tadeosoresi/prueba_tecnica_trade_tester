@@ -19,9 +19,9 @@ class Bot():
         self.count_money = dict.fromkeys(self.tickers, 0)
         self.total_results = {'1': 0, '2': 0, '3': 0}
         self.funds = funds
-        self.test_strategy_one()
-        self.test_strategy_two()
-        self.test_strategy_three()
+        self.test_strategy_one(self.data, self.tickers, self.funds)
+        self.test_strategy_two(self.data, self.tickers, self.funds)
+        self.test_strategy_three(self.data, self.tickers, self.funds)
         self.report(start_date, end_date)
     
     def report(self, start_date, end_date):
@@ -45,7 +45,7 @@ class Bot():
             buys = tuple[1]
             print(f'{index+1}. {stock} ---> {buys} veces.')
 
-    def test_strategy_one(self):
+    def test_strategy_one(self, df_merged, tickers, funds):
         print('\n--- INICIANDO ESTRATEGIA 1 ---\n')
         try:
             down_percentage = int(input(
@@ -58,15 +58,13 @@ class Bot():
                 'INGRESE PORCENTAJE AL ALZA PARA VENDER ACCIÓN (NUMERO POSITIVO UNICAMENTE): '))
         except ValueError:
             self.test_strategy_one()
-        df_merged = self.data.copy()
-        tickers = self.tickers.copy()
         for ticker in tickers:
             df_merged[f'% {ticker}'] = round(df_merged[ticker].pct_change() * 100, 2)
             df_merged[f'result {ticker}'] = None
         positive_trades = 0
         buys = 0
         result_total = 0
-        funds = self.funds
+        funds = funds
         for ticker in tickers:
             blocked = False
             stocks = None
@@ -110,7 +108,7 @@ class Bot():
         df_merged.to_excel('strategy_one_results.xlsx')
         print('EXCEL OF TRADES DETAILS GENERATED')
     
-    def test_strategy_two(self):
+    def test_strategy_two(self, df_merged, tickers, funds):
         print('\n--- INICIANDO ESTRATEGIA 2 ---\n')
         try:
             days = int(input(
@@ -123,8 +121,6 @@ class Bot():
             percentage_mean = percentage_mean / 100
         except ValueError:
             self.test_strategy_two()
-        df_merged = self.data.copy()
-        tickers = self.tickers.copy()
         df_merged.reset_index(inplace=True)
         for ticker in tickers:
             df_merged[f'mean {ticker}'] = None
@@ -135,7 +131,7 @@ class Bot():
         buys = 0
         positive_trades = 0
         result_total = 0
-        funds = self.funds
+        funds = funds
         broke = False
         for ticker in tickers:
             blocked = False
@@ -188,7 +184,7 @@ class Bot():
         df_merged.to_excel('strategy_two_results.xlsx')
         print('EXCEL OF TRADES DETAILS GENERATED')
 
-    def test_strategy_three(self):
+    def test_strategy_three(self, df_merged, tickers, funds):
         print('\n--- INICIANDO ESTRATEGIA 3 ---\n')
         try:
             down_percentage = int(input(
@@ -212,8 +208,6 @@ class Bot():
                 'INGRESE LIMITE DE DÍAS DE TENENCIA DE ACCIÓN (NUMERO UNICAMENTE): '))
         except ValueError:
             self.test_strategy_three()
-        df_merged = self.data.copy()
-        tickers = self.tickers.copy()
         df_merged.reset_index(inplace=True)
         for ticker in tickers:
             df_merged[f'% {ticker}'] = round(df_merged[ticker].pct_change() * 100, 2)
@@ -225,7 +219,7 @@ class Bot():
         buys = 0
         positive_trades = 0
         result_total = 0
-        funds = self.funds
+        funds = funds
         broke = False
         for ticker in tickers:
             blocked = False
