@@ -17,6 +17,7 @@ Trae unicamente data de los ultimos 3 meses, si no podemos traer historicos de h
 
 ## 🚀 Lista de mejoras
 Algunas features que se podrían agregar:
+
 HECHAS:
 - [ ] Validador de tickers de acciones que especificamos via consola (si la data se desea descargar desde API). Se hizo esto con la api de AlphaVantage.
 - [ ] Guardar todos los movimentos de las tres estrategias en un xlsx.
