@@ -22,6 +22,7 @@ HECHAS:
 - [ ] Validador de tickers de acciones que especificamos via consola (si la data se desea descargar desde API). Se hizo esto con la api de AlphaVantage.
 - [ ] Guardar todos los movimentos de las tres estrategias en un xlsx.
 - [ ] Recibir datos via API/CSV/XLSX.
+
 PENDIENTES:
 - [ ] Montos de inversión variables, analisis en base al volumen, verificar si las cotizaciones estan ajustadas por splits/dividendos.
 - [ ] Indicadores tecnicos para solventar decisión de compra/venta.
