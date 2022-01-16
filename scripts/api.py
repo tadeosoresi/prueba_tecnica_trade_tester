@@ -28,6 +28,9 @@ class Api():
         for ticker in tickers:
             params['symbol'] = ticker
             response = self.get_response(self.url, params)
+            if not response:
+                print('--- ERROR DE CONEXIÓN ---') 
+                sys.exit(0)
             try:
                 content = response['Time Series (Daily)']
             except KeyError:
@@ -55,6 +58,9 @@ class Api():
         for index, ticker in enumerate(tickers):
             params['keywords'] = ticker
             response = self.get_response(self.url, params=params)
+            if not response:
+                print('--- ERROR DE CONEXIÓN ---') 
+                sys.exit(0)
             print(f'\n--- ENCONTRANDO MATCH EN API ALPHAVANTAGE {ticker} ---')
             content = response.get('bestMatches', None)
             if not content:
