@@ -57,6 +57,9 @@ if __name__ =='__main__':
         elif args.csv and not args.xlsx:
             path = os.getcwd()
             csv_files = glob.glob(os.path.join(path, '*.csv'))
+            if not csv_files:
+                print('--- GUARDAR csv EN CARPETA DEL SCRIPT ---')
+                sys.exit(0)
             for index, csv in enumerate(csv_files):
                 print(f'N°: {index}\n File Name:', csv.split('\\')[-1])
             try:
@@ -73,6 +76,9 @@ if __name__ =='__main__':
         else:
             path = os.getcwd()
             xlsx_files = glob.glob(os.path.join(path, '*.xlsx'))
+            if not xlsx_files:
+                print('--- GUARDAR xlsx EN CARPETA DEL SCRIPT ---')
+                sys.exit(0)
             for index, xlsx in enumerate(xlsx_files):
                 print(f'N°: {index}\n File Name:', xlsx.split('\\')[-1])
             try:
