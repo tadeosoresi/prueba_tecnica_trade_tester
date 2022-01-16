@@ -3,15 +3,13 @@ Prueba técnica: Script que testee 3 estrategias de trading sobre datos via API/
 
 GUIDE:
 Para ejecutar programa: python main.py --funds --tickers --start --end --csv --xlsx
---funds: OBLIGATORIO, fondos totales que se dispone.
---tickers: OBLIGATORIO, tickers de las acciones a operar, ingresar de forma accion1 accion2 accionN
---start: NO OBLIGATORIO, toma fecha default (date start), si ingresamos archivo con cotizaciones toma la primera fecha
-en el indice.
---end: NO OBLIGATORIO, toma fecha default (date end), si ingresamos archivo con cotizaciones toma la ultima fecha
-en el indice.
---csv: NO OBLIGATORIO SALVO QUE SE DESEE INGRESAR COTIZACIONES DESDE CSV, por defecto FALSE.
---xlsx: NO OBLIGATORIO SALVO QUE SE DESEE INGRESAR COTIZACIONES DESDE XLSX, por defecto FALSE.
-SI INGRESAMOS COTIZACIONES DESDE ARCHIVO, LA COLUMNA DATE DEBE SER LA PRIMERA Y LOS TICKERS CONTENIDOS EN EL ARCHIVO DEBEN SER LOS MISMOS QUE ESPECIFICAMOS VIA CONSOLA (HACE UN MATCH)
+- --funds: OBLIGATORIO, fondos totales que se dispone.
+- --tickers: OBLIGATORIO, tickers de las acciones a operar, ingresar de forma accion1 accion2 accionN
+- --start: NO OBLIGATORIO, toma fecha default (date start), si ingresamos archivo con cotizaciones toma la primera fecha en el indice.
+- --end: NO OBLIGATORIO, toma fecha default (date end), si ingresamos archivo con cotizaciones toma la ultima fecha en el indice.
+- --csv: NO OBLIGATORIO SALVO QUE SE DESEE INGRESAR COTIZACIONES DESDE CSV, por defecto FALSE.
+- --xlsx: NO OBLIGATORIO SALVO QUE SE DESEE INGRESAR COTIZACIONES DESDE XLSX, por defecto FALSE.
+- SI INGRESAMOS COTIZACIONES DESDE ARCHIVO, LA COLUMNA DATE DEBE SER LA PRIMERA Y LOS TICKERS CONTENIDOS EN EL ARCHIVO DEBEN SER LOS MISMOS QUE ESPECIFICAMOS VIA CONSOLA (HACE UN MATCH)
 
 LIMITACIONES:
 Por temas de API, solamente maximo de 5 tickers (por los calls en el paquete basico), por eso mismo en los resultados totales se redujeron a top 3 (Acciones con más ganancia/menor perdida, top compradas)
